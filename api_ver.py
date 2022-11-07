@@ -143,6 +143,12 @@ def get_file_info(file, filename):
     return ac_dict, re_dict
 
 
+@app.route('/', methods=['GET'])
+@cross_origin()
+def hello():
+    return jsonify({'App Runnning successfully'})
+
+
 @app.route('/parse_table', methods=['POST'])
 @cross_origin()
 def upload_file():
@@ -658,4 +664,4 @@ def customZip_ner(candis_df, name, email, phone, mk, gender):
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5010)
